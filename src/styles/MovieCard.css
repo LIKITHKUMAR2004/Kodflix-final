@@ -1,0 +1,35 @@
+.movieCard {
+  max-height: 100px;
+  transition: transform 450ms;
+  cursor: pointer;
+}
+
+.movieCard__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.movieCard--large {
+  max-height: 250px;
+}
+
+.movieCard:hover {
+  transform: scale(1.08);
+}
+
+.movieCard--large:hover {
+  transform: scale(1.09);
+}
+
+@media (max-width: 768px) {
+  .movieCard {
+    max-height: 80px;
+  }
+
+  .movieCard--large {
+    max-height: 180px;
+  }
+}
+

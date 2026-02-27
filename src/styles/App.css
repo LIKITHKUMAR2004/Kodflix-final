@@ -1,0 +1,20 @@
+.app {
+  background-color: #111;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.app__main {
+  padding-top: 60px; /* header height */
+}
+
+.app__rows {
+  margin-top: -100px; /* pull rows up closer to banner like Netflix */
+}
+
+@media (max-width: 768px) {
+  .app__rows {
+    margin-top: -40px;
+  }
+}
+

@@ -1,0 +1,39 @@
+.row {
+  color: #fff;
+  margin-left: 20px;
+  margin-bottom: 24px;
+}
+
+.row__title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.row__status {
+  font-size: 0.85rem;
+  color: #e5e5e5;
+  margin-bottom: 4px;
+}
+
+.row__status--error {
+  color: #ff6b6b;
+}
+
+.row__posters {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px 0;
+  gap: 6px;
+}
+
+.row__posters::-webkit-scrollbar {
+  display: none;
+}
+
+.row__posters {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
