@@ -76,26 +76,26 @@ export async function loginUser(payload: LoginPayload): Promise<unknown> {
 
 export async function verifyUser(): Promise<MeResponse> {
   try {
+
+    const token = localStorage.getItem("token")
+
     const res = await fetch(`${API_BASE}/auth/me`, {
-      method: 'GET',
-      credentials: 'include',
-      mode: 'cors',
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     })
 
     if (!res.ok) {
-      console.error('Verify request failed', res.status, res.statusText)
+      console.error("Verify request failed", res.status)
       return { authenticated: false }
     }
 
-    try {
-      const data = (await res.json()) as MeResponse
-      return data
-    } catch {
-      // e.g. 204 No Content but OK; treat as authenticated
-      return { authenticated: true }
-    }
+    const data = await res.json()
+    return data
+
   } catch (error) {
-    console.error('Verify request failed (network/CORS)', error)
+    console.error("Verify request failed", error)
     return { authenticated: false }
   }
 }
