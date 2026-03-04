@@ -60,11 +60,14 @@ export async function loginUser(payload: LoginPayload): Promise<unknown> {
     const res = await fetch(`${API_BASE}/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      mode: 'cors',
       body: JSON.stringify(payload),
     })
-    return await handleResponse<unknown>(res)
+    const data = await 
+    handleResponse<any>(res)
+    localStorage.setItem("token", data.token) 
+    return data
+
+
   } catch (error) {
     console.error('Login request failed', error)
     throw error
