@@ -3,6 +3,10 @@ import '../styles/Header.css'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+  function handleLogout() {
+    localStorage.removeItem("token")
+    window.location.href = "/"
+  }
 
   useEffect(() => {
     function handleScroll() {
@@ -31,6 +35,7 @@ export function Header() {
           <span className="header__icon">🔍</span>
           <span className="header__icon">🔔</span>
           <div className="header__avatar">U</div>
+          <button onClick={handleLogout}>Logout</button>
         </div>
       </div>
     </header>
